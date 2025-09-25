@@ -18,7 +18,7 @@
    </body>
   <script>
     
-document.body.append(...[
+document.body.innerHTML += [
 	{fullname: 'Clement Denis', title: 'Chef dev', email: 'clement@01talent.com' },
 	{fullname: 'Raphael Alcufrom', title: 'Opperation Manager', email: 'raphael.alcufrom@01talent.com' },
 
@@ -33,6 +33,6 @@ document.body.append(...[
       <p class="c16"><span class="c10">Any electronic messages I send outside of your regular working hours (whether in the morning, evening, or during non-working days such as weekends, days off, vacations, or public holidays) do not require a response until you are back during your normal working hours.</span></p>
       <p class="c12 c19"><span class="c10"></span></p>
       <p class="c9"><span class="c10"></span></p>
-`))
+`).join('<br>\n')
   </script>
 </html>
