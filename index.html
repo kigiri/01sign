@@ -17,15 +17,12 @@
       <p class="c16"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 604.77px; height: 341.33px;"><img alt="" src="images/image1.png" style="width: 604.77px; height: 341.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
    </body>
   <script>
-    
-document.body.innerHTML += [
-	{fullname: 'Clement Denis', title: 'Chef dev', email: 'clement@01talent.com' },
-	{fullname: 'Raphael Alcufrom', title: 'Opperation Manager', email: 'raphael.alcufrom@01talent.com' },
-
-	].map(({ fullname, title, email }) => `
+	  fetch('https://opensheet.elk.sh/1maVoCpxQUmelT_wpZzTZERPzW4y20zGeoLtQuxbFvXQ/1')
+		  .then(r => r.json())
+	      .then(users => users.filter(Boolean).map(({ firstname, lastname, title, email }) => `
       <p class="c12"><span class="c7">&bull;</span><span class="c13">
       <br></span><span class="c4 c20">Recode Our World With
-      <br></span><span class="c5">${fullname}</span><span class="c14">
+      <br></span><span class="c5">${firstname} ${lastname}</span><span class="c14">
       <br></span><span class="c4 c11">${title}</span><span class="c17">
       <br></span><span class="c0"><a class="c8" href="mailto:${email}">${email}</a></span><span class="c2 c4">&nbsp;| </span><span class="c0"><a class="c8" href="https://www.google.com/url?q=http://www.01talent.com&amp;sa=D&amp;source=editors&amp;ust=1758806956740601&amp;usg=AOvVaw0quxXQ0gSoXkXcGbk_Foio">www.01talent.com</a></span></p>
       <p class="c12"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 22.00px; height: 22.00px;"><img alt="" src="images/image2.png" style="width: 22.00px; height: 22.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span>&nbsp;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 22.00px; height: 22.00px;"><img alt="" src="images/image4.png" style="width: 22.00px; height: 22.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span>&nbsp;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 22.03px; height: 22.00px;"><img alt="" src="images/image5.png" style="width: 22.03px; height: 22.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c17 c18">&nbsp;</span></p>
@@ -33,6 +30,8 @@ document.body.innerHTML += [
       <p class="c16"><span class="c10">Any electronic messages I send outside of your regular working hours (whether in the morning, evening, or during non-working days such as weekends, days off, vacations, or public holidays) do not require a response until you are back during your normal working hours.</span></p>
       <p class="c12 c19"><span class="c10"></span></p>
       <p class="c9"><span class="c10"></span></p>
-`).join('<br>\n')
+`))
+	      .then(html => document.body.innerHTML += html.join('<br>\n'))
+
   </script>
 </html>
