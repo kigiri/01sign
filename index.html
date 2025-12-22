@@ -19,17 +19,31 @@
   <script>
 	  fetch('https://opensheet.elk.sh/1maVoCpxQUmelT_wpZzTZERPzW4y20zGeoLtQuxbFvXQ/1')
 		  .then(r => r.json())
-	      .then(users => users.filter(Boolean).map(({ firstname, lastname, title, email }) => `
-      <p class="c12"><span class="c7">&bull;</span><span class="c13">
-      <br></span><span class="c4 c20">Recode Our World With
-      <br></span><span class="c5">${firstname} ${lastname}</span><span class="c14">
-      <br></span><span class="c4 c11">${title}</span><span class="c17">
-      <br></span><span class="c0"><a class="c8" href="mailto:${email}">${email}</a></span><span class="c2 c4">&nbsp;| </span><span class="c0"><a class="c8" href="https://www.google.com/url?q=http://www.01talent.com&amp;sa=D&amp;source=editors&amp;ust=1758806956740601&amp;usg=AOvVaw0quxXQ0gSoXkXcGbk_Foio">www.01talent.com</a></span></p>
-      <p class="c12"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 22.00px; height: 22.00px;"><img alt="" src="images/image2.png" style="width: 22.00px; height: 22.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span>&nbsp;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 22.00px; height: 22.00px;"><img alt="" src="images/image4.png" style="width: 22.00px; height: 22.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span>&nbsp;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 22.03px; height: 22.00px;"><img alt="" src="images/image5.png" style="width: 22.03px; height: 22.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c17 c18">&nbsp;</span></p>
-      <p class="c16"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 339.41px; height: 113.94px;"><img alt="" src="images/image3.png" style="width: 339.41px; height: 113.94px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
-      <p class="c16"><span class="c10">Any electronic messages I send outside of your regular working hours (whether in the morning, evening, or during non-working days such as weekends, days off, vacations, or public holidays) do not require a response until you are back during your normal working hours.</span></p>
-      <p class="c12 c19"><span class="c10"></span></p>
-      <p class="c9"><span class="c10"></span></p>
+	      .then(users => users.filter(Boolean).map(({ firstname, lastname, title, mobile }) => `
+		  <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse; font-family: sans-serif; ">
+  <td style="width: 100px;">
+    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; text-align: center;">
+      <tr><td><img style="vertical-align: middle;" height=84 src="data:image/png;base64,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" alt="01edu.ai logo" /></td></tr>
+      <tr><td><table cellpadding="0" cellspacing="0" border="0" style="width:  100%; border-collapse: collapse;">
+          <td style="text-align: right;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAAFVBMVEUAbv8AZv0AZPsAZPoAY/oAY/oAY/l3avxhAAAABnRSTlMBJElun+EUOuhWAAAAeElEQVR42nWRWw5EIQxCSynsf8mT0ftovEpiGs8HTSGmwJKtIqKp/KgeCLlJaPTLh6k6v30zYHf/+WekuxAcc7Fn1BjJ/yuAl4s8vNNoJyjcsIRrScdpMzCxdlhRO1zBL34H6ARtYqxEC3UJVyvVIdh9DefSDhX/AG9gB3lXklbbAAAAAElFTkSuQmCC" alt="Linkedin" /></td>
+          <td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAAFVBMVEUAAAAAaP8AZPsAY/oAY/oAY/oAY/kPaWDFAAAAB3RSTlMAG1R6mMr+bXQ4ZAAAAGRJREFUeNp1kVEOwCAIQx8Fuf+RlyywzTjenxUtUBp5hIsNiyzCeFB+EIXnhr+1p255YEC5rZvyBXYfVbn62oB+LLxN1hLQ53jkzKWSY5CHTwbL/waHcebhz1VpWOwQwxjaEPEFi14Gne1xxIAAAAAASUVORK5CYII=" alt="Youtube" /></td>
+          <td style="text-align: left;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAMAAADzapwJAAAAFVBMVEUAb/8AZ/0AZPsAY/oAY/oAY/oAY/m8kBnnAAAAB3RSTlMBHlJ9mdL85I78OAAAAHdJREFUeNp1kUEKBEEIA2PU/P/JC+qw7cFAXwotWsUXeoQTKxaahP0p9YSYuFZ81+56q4pRWnUagCiaqmTxACBJGBqW1dzmRBuZIbTdB5P1utERjbNlg+PAryQfCQcnAWow9wc1sm8c7nGO4Y9VHYs9znAd7TjxD9g7Bu7IOEELAAAAAElFTkSuQmCC" alt="Instagram" /></td>
+        </table>
+      </td></tr>
+    </table>
+  </td>
+  <td style="width: 3px; background: #0063f9;"></td>
+  <td style="width: 3px;"></td>
+  <td>
+    <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;">
+      <tr style="height: 20px;"><td style="font-size: 12px;">Recode Our World With</td></tr>
+      <tr style="height: 20px;"><td style="font-weight: bold; color: #0063f9;">${firstname} ${lastname}</td></tr>
+      <tr style="height: 20px;"><td style="font-weight: bold; font-size: 12px;">${title}</td></tr>
+      ${mobile ? `<tr style="height: 20px;"><td style="font-size: 12px;">Mobile: ${mobile}</td></tr>` : ''}
+      <tr style="height: 20px;"><td style="font-size: 12px;"><a style="color: #0063f9;" href="https://www.01edu.ai">www.01edu.ai</a></td></tr>
+    </table>
+  </td>
+</table
 `))
 	      .then(html => document.body.innerHTML += html.join('<br>\n'))
 
